@@ -1,7 +1,7 @@
 {
-  "name": "ts_template",
-  "version": "1.0.0-alpha.1",
-  "description": "",
+  "name": "fter",
+  "version": "1.0.0-beta.1",
+  "description": "Management query string for request",
   "main": "lib/index.js",
   "types": "./types/index.d.ts",
   "scripts": {
