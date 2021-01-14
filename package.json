@@ -1,9 +1,12 @@
 {
   "name": "fter",
   "version": "1.0.0-beta.1",
-  "description": "Management query string for request",
+  "description": "Variable manager of a link",
   "main": "lib/index.js",
   "types": "./types/index.d.ts",
+  "bugs": "https://github.com/Bitzone-lab/fter/issues",
+  "repository": "https://github.com/Bitzone-lab/fter",
+  "homepage": "https://github.com/Bitzone-lab",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
@@ -14,7 +17,11 @@
   },
   "keywords": [
     "typescript",
-    "javascript"
+    "javascript",
+    "query",
+    "path",
+    "url",
+    "request"
   ],
   "author": "Erick <ertriilive@gmail.com> (https://github.com/ertrii)",
   "license": "MIT",

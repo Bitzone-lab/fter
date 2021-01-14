@@ -1,7 +1,7 @@
 Fter
 =========
 
-> Management query string for request
+> Variable manager of a link
 
 ```
 npm install fter
