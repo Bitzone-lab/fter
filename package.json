@@ -1,6 +1,6 @@
 {
   "name": "fter",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0",
   "description": "Variable manager of a link",
   "main": "lib/index.js",
   "types": "./types/index.d.ts",
@@ -22,6 +22,12 @@
     "path",
     "url",
     "request"
+  ],
+  "files": [
+      "lib",
+      "types",
+      "Readme.md",
+      "LICENSE"
   ],
   "author": "Erick <ertriilive@gmail.com> (https://github.com/ertrii)",
   "license": "MIT",

@@ -1,6 +1,6 @@
 import { Data } from './types'
 
-export default function parse(props: Data): string {
+export default function parse(props: Data, path: string = ''): string {
     let url = ''
     for (const key in props) {
         const value = props[key]
@@ -12,5 +12,5 @@ export default function parse(props: Data): string {
     }
 
     if (url === '') return ''
-    return `/?${url.slice(0, -1)}`
+    return `${path}?${url.slice(0, -1)}`
 }

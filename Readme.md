@@ -18,7 +18,8 @@ const filter = {
     search: 'hello',
     limit: 10,
     sort: 'name',
-    ids: [1, 5]
+    ids: [1, 5],
+    enabled: false
 }
 // queries
 fter(filter)`
@@ -28,10 +29,11 @@ fter(filter)`
     order=asc
     page?
     ids
+    enabled?
 `
 ```
 > query path:
-> `/?search=&sort=name&order=asc&ids=1,5`
+> `/?search=&sort=name&order=asc&ids=1,5&enabled=false`
 
 ## Symbols
 
@@ -62,14 +64,14 @@ fter({ search: 'hello', limit: 15 })`
 ```
 > `/?search=hello&limit=15`
 ```js
-fter({ ids: [1, 2] }, limit: 10 )`
+fter({ ids: [1, 2], limit: 10 })`
     ids?1,2
     limit
 `
 ```
 > `/?limit=10`
 ```js
-fter({ ids: [1, 2, 3] }, limit: 10 )`
+fter({ ids: [1, 2, 3], limit: 10 })`
     ids?1,2
     limit
 `
@@ -102,7 +104,7 @@ fter({ limit: 15 })`
 > `/?search=&limit=15`
 
 ```js
-fter({ limit: 10 }`
+fter({ limit: 10 })`
     ids=1,2
     limit
 `
@@ -110,7 +112,7 @@ fter({ limit: 10 }`
 > `/?ids=1,2&limit=10`
 
 ```js
-fter({ limit: 10 }`
+fter({ limit: 10 })`
     ids=1,2
     limit
 `

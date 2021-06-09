@@ -25,5 +25,5 @@ export default interface Fter {
     /**
      * Parse object to query path
      */
-    parse: (props: Data) => string
+    parse: (props: Data, path?: string) => string
 }
