@@ -1,7 +1,7 @@
 Fter
 =========
 
-> Variable manager of a link
+> Urls parameter handler 
 
 ```
 npm install fter
@@ -48,35 +48,35 @@ fter({ search: 'hello' })`
     limit?
 `
 ```
-> `/?search=hello`
+> `?search=hello`
 ```js
 fter({ search: 'hello', limit: 10 })`
     search
     limit?10
 `
 ```
-> `/?search=hello`
+> `?search=hello`
 ```js
 fter({ search: 'hello', limit: 15 })`
     search
     limit?10
 `
 ```
-> `/?search=hello&limit=15`
+> `?search=hello&limit=15`
 ```js
 fter({ ids: [1, 2], limit: 10 })`
     ids?1,2
     limit
 `
 ```
-> `/?limit=10`
+> `?limit=10`
 ```js
 fter({ ids: [1, 2, 3], limit: 10 })`
     ids?1,2
     limit
 `
 ```
-> `/?ids=1,2,3&limit=10`
+> `?ids=1,2,3&limit=10`
 
 ### Default (=)
 
@@ -87,21 +87,21 @@ fter({ limit: 15 })`
     limit
 `
 ```
-> `/?search=bye&limit=15`
+> `?search=bye&limit=15`
 ```js
 fter({ search: 'hello', limit: 15 })`
     search=bye
     limit
 `
 ```
-> `/?search=hello&limit=15`
+> `?search=hello&limit=15`
 ```js
 fter({ limit: 15 })`
     search=
     limit
 `
 ```
-> `/?search=&limit=15`
+> `?search=&limit=15`
 
 ```js
 fter({ limit: 10 })`
@@ -109,7 +109,7 @@ fter({ limit: 10 })`
     limit
 `
 ```
-> `/?ids=1,2&limit=10`
+> `?ids=1,2&limit=10`
 
 ```js
 fter({ limit: 10 })`
@@ -117,7 +117,7 @@ fter({ limit: 10 })`
     limit
 `
 ```
-> `/?ids=1,2&limit=10`
+> `?ids=1,2&limit=10`
 
 ## Required
 
@@ -128,7 +128,7 @@ fter({ search: 'hello' })`
     limit
 `
 ```
-> `/?search=hello&limit=undefined`
+> `?search=hello&limit=undefined`
 
 ## Null
 
@@ -138,7 +138,7 @@ fter({ search: null })`
     search
 `
 ```
-> `/?search=`
+> `?search=`
 
 When it's optional.
 ```js
@@ -147,7 +147,7 @@ fter({ search: 'hello', count: null })`
     count?
 `
 ```
-> `/?search=hello`
+> `?search=hello`
 
 When it has a default value
 ```js
@@ -156,7 +156,7 @@ fter({ search: 'hello', count: null })`
     count=2
 `
 ```
-> `/?search=hello&count=`
+> `?search=hello&count=`
 
 ```js
 fter({ search: 'hello' })`
@@ -164,7 +164,7 @@ fter({ search: 'hello' })`
     count=null
 `
 ```
-> `/?search=hello&count=null`
+> `?search=hello&count=null`
 
 ## Parse
 
@@ -173,10 +173,38 @@ import { parse } from 'fter'
 ```
 ```js
 import fter from 'fter'
+
 fter.parse({
     name: 'Juan'
 })
 ```
-> `/?name=Juan`
+> `?name=Juan`
 
 Convert an object to link parameters
+
+## Merge
+
+```js
+import { merge } from 'fter'
+```
+```js
+import fter from 'fter'
+
+fter.merge(
+    'http://localhost:8000/users?limit=10',
+    'https://my_page?search=hi&order=asc'
+)
+```
+> `http://localhost:8000/users?limit=10&search=hi&order=asc`
+
+```js
+merge('localhost', '?search=hi')
+```
+> `localhost?search=hi`
+
+```js
+merge('https://localhost', 'param1=value1&param2=value2')
+```
+> `https://localhost?param1=value1&param2=value2`
+
+Merge params

@@ -1,12 +1,14 @@
 import parse from './parse'
+import merge from './merge'
 import create_query from './create_query'
 import Fter, { Data, Query } from './types'
 
-function fter(props: Data): Query {
+const fter: Fter = (props: Data): Query => {
     return create_query(props)
 }
 
 fter.parse = parse
+fter.merge = merge
 
-export { parse }
-export default ((): Fter => fter)()
+export { parse, merge }
+export default fter

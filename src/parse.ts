@@ -1,5 +1,8 @@
 import { Data } from './types'
 
+/**
+ * Parse object to query path
+ */
 export default function parse(props: Data, path: string = ''): string {
     let url = ''
     for (const key in props) {

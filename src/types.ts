@@ -22,8 +22,6 @@ export default interface Fter {
      * console.log(path) // /?search=hello&sort=name&order=asc
      */
     (props: Data): Query
-    /**
-     * Parse object to query path
-     */
     parse: (props: Data, path?: string) => string
+    merge: (fullPath: string, params: string) => string
 }

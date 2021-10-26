@@ -1,7 +1,7 @@
 {
   "name": "fter",
-  "version": "1.0.0",
-  "description": "Variable manager of a link",
+  "version": "1.1.0",
+  "description": "Urls parameter handler",
   "main": "lib/index.js",
   "types": "./types/index.d.ts",
   "bugs": "https://github.com/Bitzone-lab/fter/issues",
